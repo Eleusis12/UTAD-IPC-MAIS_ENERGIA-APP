@@ -2,6 +2,8 @@ import React from "react";
 import AppLoading from "expo-app-loading";
 import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
 import Home from "./screens/Home";
+import * as eva from "@eva-design/eva";
+import { ApplicationProvider, Layout, Text } from "@ui-kitten/components";
 
 export default function App() {
   // Usar as seguintes fonts
@@ -14,5 +16,9 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-  return <Home />;
+  return (
+    <ApplicationProvider {...eva} theme={eva.light}>
+      <Home />
+    </ApplicationProvider>
+  );
 }
