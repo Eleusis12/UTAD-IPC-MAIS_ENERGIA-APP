@@ -5,15 +5,11 @@ import StartButton from "../components/StartButton";
 import DefaultText from "../components/DefaultText";
 import Colors from "../constants/Colors";
 
+import TopNavigationAcessories from "../components/TopNavigationAcessories";
 import { Layout, Text, Divider, TopNavigation } from "@ui-kitten/components";
 
 export const HomeScreen = ({ navigation }) => {
   const image = require("../assets/BackgroundImage.jpg");
-
-  const buttonClickedHandler = () => {
-    console.log("Carregaste no botão");
-    // do something
-  };
 
   // Navega para o primeiro treino
   const navigateTraining = () => {
@@ -21,14 +17,17 @@ export const HomeScreen = ({ navigation }) => {
       trainId: 86,
     });
   };
-  console.log(navigateTraining);
+
+  const navigateSettings = () => {
+    navigation.navigate("Settings");
+  };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <TopNavigation title="+Energia" alignment="center" />
-      <Divider />
       <Layout style={styles.screen}>
         <ImageBackground source={image} style={styles.imageBg}>
+          <TopNavigationAcessories navigateSettings={navigateSettings} />
+          <Divider />
           <View style={styles.container}>
             <DefaultText style={styles.startTrainingText}>
               Começar treino

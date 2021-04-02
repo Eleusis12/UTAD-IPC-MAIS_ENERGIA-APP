@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
-import { Layout, Toggle } from "@ui-kitten/components";
+import {
+  Layout,
+  Toggle,
+  Icon,
+  Divider,
+  TopNavigation,
+  TopNavigationAction,
+} from "@ui-kitten/components";
 import SettingsOption from "../components/SettingsOption";
 
+const BackIcon = (props) => <Icon {...props} name="arrow-back" />;
 export const SettingsScreen = ({ navigation }) => {
   const [soundEnabled, setSoundEnabled] = useState(false);
   const [notificationsEnabled, setNotificationsEnabled] = useState(false);
@@ -15,8 +23,21 @@ export const SettingsScreen = ({ navigation }) => {
     setNotificationsEnabled(!notificationsEnabled);
   };
 
+  const navigateBack = () => {
+    navigation.goBack();
+  };
+
+  const BackAction = () => (
+    <TopNavigationAction icon={BackIcon} onPress={navigateBack} />
+  );
   return (
     <Layout style={styles.container}>
+      <TopNavigation
+        style={{ minHeight: 100 }}
+        title="Definições"
+        alignment="center"
+        accessoryLeft={BackAction}
+      />
       {/* <DefaultText style={styles.startTrainingText}>Começar treino</DefaultText> */}
       <SettingsOption style={styles.setting} hint="Tema da aplicação" />
       <SettingsOption style={styles.setting} hint="Vibrar ao premir" />

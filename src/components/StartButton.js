@@ -7,8 +7,6 @@ const startButton = (props) => {
 
   const { startButtonHandler } = props;
 
-  console.log(startButtonHandler);
-
   return (
     <TouchableOpacity
       onPress={startButtonHandler}

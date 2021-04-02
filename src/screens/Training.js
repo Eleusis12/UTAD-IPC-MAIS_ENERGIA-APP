@@ -13,25 +13,7 @@ import {
 
 const image2 = require("../assets/workout.jpg");
 
-const BackIcon = (props) => (
-  <Icon {...props} name='arrow-back'/>
-);
-
-const EditIcon = (props) => (
-  <Icon {...props} name='edit'/>
-);
-
-const MenuIcon = (props) => (
-  <Icon {...props} name='more-vertical'/>
-);
-
-const InfoIcon = (props) => (
-  <Icon {...props} name='info'/>
-);
-
-const LogoutIcon = (props) => (
-  <Icon {...props} name='log-out'/>
-);
+const BackIcon = (props) => <Icon {...props} name="arrow-back" />;
 
 export const TrainingScreen = ({ route, navigation }) => {
   const navigateBack = () => {
@@ -48,7 +30,8 @@ export const TrainingScreen = ({ route, navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <TopNavigation
-        title="Treino"
+        style={{ minHeight: 100 }}
+        title={JSON.stringify(trainId)}
         alignment="center"
         accessoryLeft={BackAction}
       />
@@ -120,6 +103,5 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 16,
     flexWrap: "wrap",
-
   },
 });
