@@ -1,35 +1,45 @@
 import React from "react";
-import { StyleSheet, View, ImageBackground } from "react-native";
+import { StyleSheet, View, ImageBackground, SafeAreaView } from "react-native";
 
 import StartButton from "../components/StartButton";
 import DefaultText from "../components/DefaultText";
 import Colors from "../constants/Colors";
 
-import { Layout, Text } from "@ui-kitten/components";
+import { Layout, Text, Divider, TopNavigation } from "@ui-kitten/components";
 
-const Home = (props) => {
+export const HomeScreen = ({ navigation }) => {
   const image = require("../assets/BackgroundImage.jpg");
 
-  const { startButtonHandler } = props;
+  const buttonClickedHandler = () => {
+    console.log("Carregaste no botão");
+    // do something
+  };
+
+  const navigateDetails = () => {
+    navigation.navigate("Training");
+  };
 
   return (
-    <Layout style={styles.screen}>
-      <ImageBackground source={image} style={styles.imageBg}>
-        <View style={styles.container}>
-          <DefaultText style={styles.startTrainingText}>
-            Começar treino
-          </DefaultText>
-          <StartButton
-            startButtonHandler={startButtonHandler}
-            style={{ backgroundColor: Colors.secondaryColor }}
-          />
-        </View>
-      </ImageBackground>
-    </Layout>
+    <SafeAreaView style={{ flex: 1 }}>
+      <TopNavigation title="+Energia" alignment="center" />
+      <Divider />
+      <Layout style={styles.screen}>
+        <ImageBackground source={image} style={styles.imageBg}>
+          <View style={styles.container}>
+            <DefaultText style={styles.startTrainingText}>
+              Começar treino
+            </DefaultText>
+            <StartButton
+              startButtonHandler={buttonClickedHandler}
+              style={{ backgroundColor: Colors.secondaryColor }}
+            />
+          </View>
+        </ImageBackground>
+      </Layout>
+    </SafeAreaView>
   );
 };
 
-export default Home;
 /// Just some styles
 const styles = StyleSheet.create({
   screen: {

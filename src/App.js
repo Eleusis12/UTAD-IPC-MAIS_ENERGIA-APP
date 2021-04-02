@@ -2,16 +2,17 @@ import React from "react";
 import AppLoading from "expo-app-loading";
 import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
 import * as eva from "@eva-design/eva";
-import { ApplicationProvider, Layout, Text } from "@ui-kitten/components";
+import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
+import { StyleSheet, View, Text, SafeAreaView } from "react-native";
+
+// import { EvaIconsPack } from "@ui-kitten/eva-icons";
+import { AppNavigator } from "./navigation/navigation";
 
 import Home from "./screens/Home";
 import Settings from "./screens/Settings";
 import Training from "./screens/Training";
 
-const buttonClickedHandler = () => {
-  console.log("Carregaste no botão");
-  // do something
-};
+
 export default function App() {
   // Usar as seguintes fonts
   // TODO: Escolher fonts mais fáceis de visualizar
@@ -24,10 +25,17 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <ApplicationProvider {...eva} theme={eva.dark}>
-      {/* <Home startButtonHandler={buttonClickedHandler} /> */}
-      {/* <Settings></Settings> */}
-      <Training></Training>
-    </ApplicationProvider>
+    <>
+      {/* <IconRegistry icons={EvaIconsPack} /> */}
+      <ApplicationProvider {...eva} theme={eva.light}>
+        <AppNavigator />
+      </ApplicationProvider>
+    </>
+
+    // <ApplicationProvider {...eva} theme={eva.dark}>
+    //   {/* <Home startButtonHandler={buttonClickedHandler} /> */}
+    //   {/* <Settings></Settings> */}
+    //   <Training></Training>
+    // </ApplicationProvider>
   );
 }

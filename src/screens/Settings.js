@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { Layout, Toggle } from "@ui-kitten/components";
 import SettingsOption from "../components/SettingsOption";
 
-function Settings() {
+export const SettingsScreen = ({ navigation }) => {
   const [soundEnabled, setSoundEnabled] = useState(false);
   const [notificationsEnabled, setNotificationsEnabled] = useState(false);
 
@@ -39,8 +39,7 @@ function Settings() {
       </SettingsOption>
     </Layout>
   );
-}
-export default Settings;
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
