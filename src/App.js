@@ -5,13 +5,12 @@ import * as eva from "@eva-design/eva";
 import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
 import { StyleSheet, View, Text, SafeAreaView } from "react-native";
 
-// import { EvaIconsPack } from "@ui-kitten/eva-icons";
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { AppNavigator } from "./navigation/navigation";
 
 import Home from "./screens/Home";
 import Settings from "./screens/Settings";
 import Training from "./screens/Training";
-
 
 export default function App() {
   // Usar as seguintes fonts
@@ -26,8 +25,8 @@ export default function App() {
   }
   return (
     <>
-      {/* <IconRegistry icons={EvaIconsPack} /> */}
-      <ApplicationProvider {...eva} theme={eva.light}>
+      <IconRegistry icons={EvaIconsPack} />
+      <ApplicationProvider {...eva} theme={eva.dark}>
         <AppNavigator />
       </ApplicationProvider>
     </>

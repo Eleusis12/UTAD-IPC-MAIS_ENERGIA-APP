@@ -13,11 +13,27 @@ import {
 
 const image2 = require("../assets/workout.jpg");
 
-const BackIcon = (props, { navigation }) => (
-  <Icon {...props} name="arrow-back" />
+const BackIcon = (props) => (
+  <Icon {...props} name='arrow-back'/>
 );
 
-export const TrainingScreen = ({ navigation }) => {
+const EditIcon = (props) => (
+  <Icon {...props} name='edit'/>
+);
+
+const MenuIcon = (props) => (
+  <Icon {...props} name='more-vertical'/>
+);
+
+const InfoIcon = (props) => (
+  <Icon {...props} name='info'/>
+);
+
+const LogoutIcon = (props) => (
+  <Icon {...props} name='log-out'/>
+);
+
+export const TrainingScreen = ({ route, navigation }) => {
   const navigateBack = () => {
     navigation.goBack();
   };
@@ -25,6 +41,9 @@ export const TrainingScreen = ({ navigation }) => {
   const BackAction = () => (
     <TopNavigationAction icon={BackIcon} onPress={navigateBack} />
   );
+
+  // Obter o ID do treino que vamos realizar
+  const { trainId } = route.params;
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -40,8 +59,11 @@ export const TrainingScreen = ({ navigation }) => {
         </View>
 
         <Layout style={styles.contentContainer} level="1">
-          <Text>Ponte</Text>
-          <Text>
+          <Text style={styles.titleTrain}>
+            Ponte id: {JSON.stringify(trainId)}
+          </Text>
+          <Divider />
+          <Text style={styles.contentText}>
             Deite-se de bruços no chão, numa superfície plana. Levante o corpo
             apoiando-se sobre as pontas dos pés e os antebraços (mantendo-os
             paralelos, à frente da cabeça). Todo o corpo deve permanecer
@@ -49,7 +71,15 @@ export const TrainingScreen = ({ navigation }) => {
           </Text>
         </Layout>
         <Divider />
-        <Button style={styles.button} status="info">
+        <Button
+          style={styles.button}
+          status="info"
+          onPress={() =>
+            navigation.push("Training", {
+              trainId: Math.floor(Math.random() * 100),
+            })
+          }
+        >
           Próximo
         </Button>
       </Layout>
@@ -77,9 +107,19 @@ const styles = StyleSheet.create({
     minHeight: 256,
     paddingVertical: 24,
   },
+  titleTrain: {
+    fontSize: 30,
+    fontWeight: "bold",
+  },
 
   contentContainer: {
     flex: 1,
     padding: 24,
+  },
+  contentText: {
+    marginTop: 20,
+    fontSize: 16,
+    flexWrap: "wrap",
+
   },
 });

@@ -15,9 +15,13 @@ export const HomeScreen = ({ navigation }) => {
     // do something
   };
 
-  const navigateDetails = () => {
-    navigation.navigate("Training");
+  // Navega para o primeiro treino
+  const navigateTraining = () => {
+    navigation.navigate("Training", {
+      trainId: 86,
+    });
   };
+  console.log(navigateTraining);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -30,7 +34,7 @@ export const HomeScreen = ({ navigation }) => {
               Começar treino
             </DefaultText>
             <StartButton
-              startButtonHandler={buttonClickedHandler}
+              startButtonHandler={navigateTraining}
               style={{ backgroundColor: Colors.secondaryColor }}
             />
           </View>
