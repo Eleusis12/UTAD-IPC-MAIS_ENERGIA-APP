@@ -1,26 +1,33 @@
 import React from "react";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import { StyleSheet, View, ImageBackground } from "react-native";
 
 import StartButton from "../components/StartButton";
 import DefaultText from "../components/DefaultText";
 import Colors from "../constants/Colors";
 
-function Home() {
+import { Layout, Text } from "@ui-kitten/components";
+
+const Home = (props) => {
   const image = require("../assets/BackgroundImage.jpg");
 
+  const { startButtonHandler } = props;
+
   return (
-    <View style={styles.screen}>
+    <Layout style={styles.screen}>
       <ImageBackground source={image} style={styles.imageBg}>
         <View style={styles.container}>
           <DefaultText style={styles.startTrainingText}>
             Começar treino
           </DefaultText>
-          <StartButton style={{ backgroundColor: Colors.secondaryColor }} />
+          <StartButton
+            startButtonHandler={startButtonHandler}
+            style={{ backgroundColor: Colors.secondaryColor }}
+          />
         </View>
       </ImageBackground>
-    </View>
+    </Layout>
   );
-}
+};
 
 export default Home;
 /// Just some styles

@@ -5,33 +5,36 @@ import SettingsOption from "../components/SettingsOption";
 
 function Settings() {
   const [soundEnabled, setSoundEnabled] = useState(false);
+  const [notificationsEnabled, setNotificationsEnabled] = useState(false);
 
   const toggleSound = () => {
     setSoundEnabled(!soundEnabled);
   };
 
+  const toggleNotifications = () => {
+    setNotificationsEnabled(!notificationsEnabled);
+  };
+
   return (
     <Layout style={styles.container}>
-      <Text>Ola mundo dsadsa </Text>
-      <Text>Ola dasdasnkjldhaslkdj</Text>
       {/* <DefaultText style={styles.startTrainingText}>Começar treino</DefaultText> */}
       <SettingsOption style={styles.setting} hint="Tema da aplicação" />
       <SettingsOption style={styles.setting} hint="Vibrar ao premir" />
+
+      <SettingsOption style={[styles.setting, styles.section]} hint="Sobre" />
+      <SettingsOption style={[styles.setting, styles.section]} hint="Ajuda" />
       <SettingsOption
         style={[styles.setting, styles.section]}
-        hint="Notification"
-      />
+        hint="Notificações"
+        onPress={toggleNotifications}
+      >
+        <Toggle checked={notificationsEnabled} onChange={toggleNotifications} />
+      </SettingsOption>
       <SettingsOption
         style={[styles.setting, styles.section]}
         hint="Ativar Som"
         onPress={toggleSound}
       >
-        <SettingsOption style={styles.setting} hint="Sobre" />
-
-        <SettingsOption
-          style={[styles.setting, styles.section]}
-          hint="Ajuda"
-        ></SettingsOption>
         <Toggle checked={soundEnabled} onChange={toggleSound} />
       </SettingsOption>
     </Layout>

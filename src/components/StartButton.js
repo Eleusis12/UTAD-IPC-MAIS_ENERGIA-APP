@@ -2,22 +2,22 @@ import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-function startButton(props) {
+const startButton = (props) => {
   // Ação a tomar quando carrega no botão
-  const buttonClickedHandler = () => {
-    console.log("Carregaste no botão");
-    // do something
-  };
+
+  const { startButtonHandler } = props;
+
+  console.log(startButtonHandler);
 
   return (
     <TouchableOpacity
-      onPress={buttonClickedHandler}
+      onPress={startButtonHandler}
       style={[styles.startTraining, props.style]}
     >
       <FontAwesome5 name="dumbbell" size={72} color="black" />
     </TouchableOpacity>
   );
-}
+};
 
 export default startButton;
 
