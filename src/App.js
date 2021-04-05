@@ -3,7 +3,7 @@ import AppLoading from "expo-app-loading";
 import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
 import * as eva from "@eva-design/eva";
 import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
-import { StyleSheet, View, Text, SafeAreaView } from "react-native";
+import { StyleSheet, View, Text, SafeAreaView, StatusBar } from "react-native";
 
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { AppNavigator } from "./navigation/navigation";
@@ -25,6 +25,7 @@ export default function App() {
   }
   return (
     <>
+      <StatusBar />
       <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider {...eva} theme={eva.dark}>
         <AppNavigator />
