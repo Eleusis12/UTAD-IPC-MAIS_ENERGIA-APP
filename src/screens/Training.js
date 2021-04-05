@@ -11,6 +11,7 @@ import {
   TopNavigationAction,
 } from "@ui-kitten/components";
 
+import Timer from "../components/Timer";
 const image2 = require("../assets/workout.jpg");
 
 const BackIcon = (props) => <Icon {...props} name="arrow-back" />;
@@ -28,7 +29,7 @@ export const TrainingScreen = ({ route, navigation }) => {
   const { trainId } = route.params;
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <Layout style={{ flex: 1 }}>
       <TopNavigation
         style={{ minHeight: 100 }}
         title={JSON.stringify(trainId)}
@@ -36,12 +37,12 @@ export const TrainingScreen = ({ route, navigation }) => {
         accessoryLeft={BackAction}
       />
       <Divider />
-      <Layout style={styles.container}>
+      <Layout style={styles.container} level="1">
         <View style={styles.imageContainer}>
           <Image style={styles.trainingImage} source={image2}></Image>
         </View>
 
-        <Layout style={styles.contentContainer} level="1">
+        <Layout style={styles.contentContainer} level="2">
           <Text style={styles.titleTrain}>
             Ponte id: {JSON.stringify(trainId)}
           </Text>
@@ -52,6 +53,7 @@ export const TrainingScreen = ({ route, navigation }) => {
             paralelos, à frente da cabeça). Todo o corpo deve permanecer
             suspenso, formando uma espécie de triângulo retângulo.
           </Text>
+          <Timer tempoRestante="30"></Timer>
         </Layout>
         <Divider />
         <Button
@@ -66,7 +68,7 @@ export const TrainingScreen = ({ route, navigation }) => {
           Próximo
         </Button>
       </Layout>
-    </SafeAreaView>
+    </Layout>
   );
 };
 
