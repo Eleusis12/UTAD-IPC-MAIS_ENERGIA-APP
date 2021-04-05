@@ -1,4 +1,4 @@
-import { Alert } from "react-native";
+import React, { BackHandler, Alert } from "react-native";
 
 const ExitConfirmation = () => {
   Alert.alert(
@@ -6,11 +6,11 @@ const ExitConfirmation = () => {
     "Tens a certeza que queres terminar este treino",
     [
       {
-        text: "Cancel",
+        text: "Cancelar",
         onPress: () => console.log("Botão de cancelar pressionado"),
         style: "cancel",
       },
-      { text: "OK", onPress: () => console.log("Ok foi pressionado") },
+      { text: "OK", onPress: () => BackHandler.exitApp() },
     ]
   );
 };
