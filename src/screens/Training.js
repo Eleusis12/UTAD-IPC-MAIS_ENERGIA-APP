@@ -12,13 +12,14 @@ import {
 } from "@ui-kitten/components";
 
 import Timer from "../components/Timer";
+import ExitConfirmation from "../Alerts/ExitConfirmation";
 const image2 = require("../assets/workout.jpg");
 
 const BackIcon = (props) => <Icon {...props} name="arrow-back" />;
 
 export const TrainingScreen = ({ route, navigation }) => {
   const navigateBack = () => {
-    navigation.goBack();
+    ExitConfirmation();
   };
 
   const BackAction = () => (
