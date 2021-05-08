@@ -58,7 +58,6 @@ export const TrainingScreen = ({ route, navigation }) => {
         </Layout>
         <Divider />
         <Button
-          style={styles.button}
           status="info"
           onPress={() =>
             navigation.push("Training", {

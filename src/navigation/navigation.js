@@ -4,11 +4,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { HomeScreen } from "../screens/Home";
 import { TrainingScreen } from "../screens/Training";
 import { SettingsScreen } from "../screens/Settings";
+import { PersonalFormScreen } from "../screens/PersonalForm";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const HomeNavigator = () => (
   <Navigator headerMode="none">
+    <Screen name="PersonalForm" component={PersonalFormScreen} />
     <Screen name="Home" component={HomeScreen} />
     <Screen name="Training" component={TrainingScreen} />
     <Screen name="Settings" component={SettingsScreen} />
