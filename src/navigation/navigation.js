@@ -7,11 +7,13 @@ import { SettingsScreen } from "../screens/Settings";
 import { PersonalFormScreen } from "../screens/PersonalForm";
 import { ListTrainingsScreen } from "../screens/ListTrainings";
 import { RestScreen } from "../screens/Rest";
+import { CongratsScreen } from "../screens/Congrats";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const HomeNavigator = () => (
   <Navigator headerMode="none">
+    <Screen name="Congrats" component={CongratsScreen} />
     <Screen name="ListTrainings" component={ListTrainingsScreen} />
     <Screen name="Rest" component={RestScreen} />
     <Screen name="PersonalForm" component={PersonalFormScreen} />
