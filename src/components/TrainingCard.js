@@ -1,54 +1,85 @@
 import React, { ReactElement, useState } from "react";
-import { StyleSheet, View, ImageBackground } from "react-native";
+import { StyleSheet, View, ImageBackground, Image } from "react-native";
 import { Button, Input, Text, Icon, Layout, Card } from "@ui-kitten/components";
 
 const TrainingCard = (props) => {
   const image = require("../assets/workout.jpg");
 
-  console.log(image2);
-
-  //   const Header = (props) => (
-  //     <View {...props}>
-  //       <Text category="h6">Nome do Exercício</Text>
-  //       <Text category="s1">Musculação</Text>
-  //     </View>
-  //   );
+  const Header = (props) => (
+    <View {...props}>
+      <Text category="h6">Ponte</Text>
+      <Text category="s1">Exercita os Abodiminais</Text>
+    </View>
+  );
 
   return (
-    <View style={styles.container}>
-      {/* <ImageBackground source={image} style={styles.image}>
-        <Text style={styles.text}>Inside</Text>
-      </ImageBackground> */}
-      {/* <Card style={styles.card} header={Header}>
-        <Text>
-          The Maldives, officially the Republic of Maldives, is a small country
-          in South Asia, located in the Arabian Sea of the Indian Ocean. It lies
-          southwest of Sri Lanka and India, about 1,000 kilometres (620 mi) from
-          the Asian continent
+    // <View style={styles.container}>
+    //   <ImageBackground style={styles.image} source={image}>
+    //     <Card style={styles.card} header={Header}></Card>
+    //   </ImageBackground>
+    // </View>
+
+    <Layout style={styles.container} level="1">
+      <ImageBackground style={styles.image} source={image}>
+        <Text style={styles.titleLabel} category="h4">
+          Ponte
         </Text>
-      </Card> */}
-    </View>
+        <Text style={styles.descriptionLabel} category="s1">
+          Deite-se de bruços no chão, numa superfície plana. Levante o corpo
+          apoiando-se sobre as pontas dos pés e os antebraços (mantendo-os
+          paralelos, à frente da cabeça). Todo o corpo deve permanecer suspenso,
+          formando uma espécie de triângulo retângulo.
+        </Text>
+        <Text style={styles.contentLabel}>3</Text>
+        <View style={styles.authoringContainer}>
+          <Text appearance="hint" category="p2">
+            Exercita: Abdominais
+          </Text>
+        </View>
+      </ImageBackground>
+    </Layout>
   );
 };
 
 export default TrainingCard;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, flexDirection: "column" },
-  imageBackground: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
+  container: {
+    padding: 15,
   },
-  card: {
-    flex: 1,
-    margin: 2,
+  image: {
+    height: 180,
+    opacity: 0.6,
   },
-  text: {
-    color: "white",
-    fontSize: 42,
+  titleLabel: {
+    fontSize: 20,
     fontWeight: "bold",
-    textAlign: "center",
-    backgroundColor: "#000000a0",
+    color: "#9C27B0",
+
+    marginHorizontal: 24,
+    marginVertical: 16,
+  },
+  descriptionLabel: {
+    margin: 24,
+  },
+  contentLabel: {
+    margin: 24,
+  },
+  authoringContainer: {
+    flexDirection: "row",
+    marginHorizontal: 24,
+  },
+  dateLabel: {
+    marginHorizontal: 8,
+  },
+  commentInputLabel: {
+    fontSize: 16,
+    marginBottom: 8,
+    color: "black",
+  },
+  commentInput: {
+    marginHorizontal: 24,
+    marginTop: 24,
+    marginBottom: 20,
   },
 });

@@ -13,7 +13,7 @@ export const HomeScreen = ({ navigation }) => {
 
   // Navega para o primeiro treino
   const navigateTraining = () => {
-    navigation.navigate("Training", {
+    navigation.navigate("ListTrainings", {
       trainId: 86,
     });
   };

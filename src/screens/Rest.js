@@ -9,6 +9,16 @@ export const RestScreen = ({ navigation }) => {
       <Text style={styles.rest}>Descansa! </Text>
       <Text style={styles.text}>Ainda tens...</Text>
       <Text style={styles.timer}>00:25</Text>
+      <Button
+        status="info"
+        onPress={() =>
+          navigation.push("Training", {
+            trainId: Math.floor(Math.random() * 100),
+          })
+        }
+      >
+        Próximo
+      </Button>
     </View>
   );
 };

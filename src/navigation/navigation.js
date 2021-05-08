@@ -13,12 +13,12 @@ const { Navigator, Screen } = createStackNavigator();
 
 const HomeNavigator = () => (
   <Navigator headerMode="none">
-    <Screen name="Congrats" component={CongratsScreen} />
-    <Screen name="ListTrainings" component={ListTrainingsScreen} />
-    <Screen name="Rest" component={RestScreen} />
     <Screen name="PersonalForm" component={PersonalFormScreen} />
     <Screen name="Home" component={HomeScreen} />
+    <Screen name="ListTrainings" component={ListTrainingsScreen} />
     <Screen name="Training" component={TrainingScreen} />
+    <Screen name="Rest" component={RestScreen} />
+    <Screen name="Congrats" component={CongratsScreen} />
     <Screen name="Settings" component={SettingsScreen} />
   </Navigator>
 );

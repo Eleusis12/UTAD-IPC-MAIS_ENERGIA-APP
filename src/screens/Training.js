@@ -57,14 +57,7 @@ export const TrainingScreen = ({ route, navigation }) => {
           <Timer tempoRestante="30"></Timer>
         </Layout>
         <Divider />
-        <Button
-          status="info"
-          onPress={() =>
-            navigation.push("Training", {
-              trainId: Math.floor(Math.random() * 100),
-            })
-          }
-        >
+        <Button status="info" onPress={() => navigation.push("Rest")}>
           Próximo
         </Button>
       </Layout>
