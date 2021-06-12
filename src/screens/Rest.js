@@ -1,29 +1,29 @@
 import React, { ReactElement, useState } from "react";
 import { StyleSheet, View, ImageBackground } from "react-native";
 import { Button, Input, Text, Icon, Layout } from "@ui-kitten/components";
+import Timer from "../components/Timer";
 
-// Solução temporária para simular o fim da lista de exercícios
-var exercices = 0;
+export const RestScreen = ({ route, navigation }) => {
+	const exList = route.params.exList;
+	var nextIndex = route.params.index;
+	nextIndex++;
 
-// Temos que retornar uma lista de exercícios que o idoso possa realizar
-export const RestScreen = ({ navigation }) => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.rest}>Descansa! </Text>
 			<Text style={styles.text}>Ainda tens...</Text>
-			<Text style={styles.timer}>00:25</Text>
+			<Timer tempoRestante={25}></Timer>
 			<Button
 				status="info"
 				onPress={() => {
-					if (exercices < 3) {
+					if (nextIndex < exList.length) {
 						navigation.push("Training", {
-							trainId: Math.floor(Math.random() * 100),
+							exList: exList,
+							index: nextIndex,
 						});
-
-            exercices++;
-					}else{
-            navigation.push("Congrats");
-          }
+					} else {
+						navigation.push("Congrats", { exList: route.params.exList });
+					}
 				}}
 			>
 				Próximo

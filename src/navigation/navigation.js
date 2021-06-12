@@ -8,23 +8,26 @@ import { PersonalFormScreen } from "../screens/PersonalForm";
 import { ListTrainingsScreen } from "../screens/ListTrainings";
 import { RestScreen } from "../screens/Rest";
 import { CongratsScreen } from "../screens/Congrats";
+import { ExerciseSettingsScreen } from "../screens/ExerciseSettings";
+import AsyncStorage from "@react-native-community/async-storage";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const HomeNavigator = () => (
-  <Navigator headerMode="none">
-    <Screen name="PersonalForm" component={PersonalFormScreen} />
-    <Screen name="Home" component={HomeScreen} />
-    <Screen name="ListTrainings" component={ListTrainingsScreen} />
-    <Screen name="Training" component={TrainingScreen} />
-    <Screen name="Rest" component={RestScreen} />
-    <Screen name="Congrats" component={CongratsScreen} />
-    <Screen name="Settings" component={SettingsScreen} />
-  </Navigator>
+	<Navigator headerMode="none">
+		<Screen name="PersonalForm" component={PersonalFormScreen} />
+		<Screen name="Home" component={HomeScreen} />
+		<Screen name="ListTrainings" component={ListTrainingsScreen} />
+		<Screen name="Training" component={TrainingScreen} />
+		<Screen name="Rest" component={RestScreen} />
+		<Screen name="Congrats" component={CongratsScreen} />
+		<Screen name="Settings" component={SettingsScreen} />
+		<Screen name="ExerciseSettings" component={ExerciseSettingsScreen} />
+	</Navigator>
 );
 
 export const AppNavigator = () => (
-  <NavigationContainer>
-    <HomeNavigator />
-  </NavigationContainer>
+	<NavigationContainer>
+		<HomeNavigator />
+	</NavigationContainer>
 );

@@ -11,31 +11,32 @@ import { AppNavigator } from "./navigation/navigation";
 import Home from "./screens/Home";
 import Settings from "./screens/Settings";
 import Training from "./screens/Training";
+import AsyncStorage from "@react-native-community/async-storage";
 
 export default function App() {
-  // Usar as seguintes fonts
-  // TODO: Escolher fonts mais fáceis de visualizar
-  let [fontsLoaded] = useFonts({
-    Inter_900Black,
-  });
+	// Usar as seguintes fonts
+	// TODO: Escolher fonts mais fáceis de visualizar
+	let [fontsLoaded] = useFonts({
+		Inter_900Black,
+	});
 
-  // Se a font ainda não carregou
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
-  return (
-    <>
-      <StatusBar />
-      <IconRegistry icons={EvaIconsPack} />
-      <ApplicationProvider {...eva} theme={eva.light}>
-        <AppNavigator />
-      </ApplicationProvider>
-    </>
+	// Se a font ainda não carregou
+	if (!fontsLoaded) {
+		return <AppLoading />;
+	}
+	return (
+		<>
+			<StatusBar />
+			<IconRegistry icons={EvaIconsPack} />
+			<ApplicationProvider {...eva} theme={eva.light}>
+				<AppNavigator />
+			</ApplicationProvider>
+		</>
 
-    // <ApplicationProvider {...eva} theme={eva.dark}>
-    //   {/* <Home startButtonHandler={buttonClickedHandler} /> */}
-    //   {/* <Settings></Settings> */}
-    //   <Training></Training>
-    // </ApplicationProvider>
-  );
+		// <ApplicationProvider {...eva} theme={eva.dark}>
+		//   {/* <Home startButtonHandler={buttonClickedHandler} /> */}
+		//   {/* <Settings></Settings> */}
+		//   <Training></Training>
+		// </ApplicationProvider>
+	);
 }

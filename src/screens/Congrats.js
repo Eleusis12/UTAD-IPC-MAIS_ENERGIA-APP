@@ -5,7 +5,17 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
 // Temos que retornar uma lista de exercícios que o idoso possa realizar
-export const CongratsScreen = ({ navigation }) => {
+export const CongratsScreen = ({ route, navigation }) => {
+	const exList = route.params.exList;
+
+	let totalCals = 0;
+	let totalTime = 0;
+
+	exList.forEach((ex) => {
+		totalCals += ex.calories;
+		totalTime += ex.time;
+	});
+
 	return (
 		<Layout style={styles.container}>
 			<View style={styles.header}>
@@ -19,15 +29,17 @@ export const CongratsScreen = ({ navigation }) => {
 				<View style={styles.columnResultTraining}>
 					<Text style={styles.labelResultTraining}> Calorias</Text>
 					<FontAwesome5 name="fire" size={50} color="black" />
-					<Text style={styles.valueResultTraining}>168</Text>
+					<Text style={styles.valueResultTraining}>{totalCals}</Text>
 				</View>
 				<View style={styles.columnResultTraining}>
 					<Text style={styles.labelResultTraining}> Tempo</Text>
 					<Ionicons name="timer" size={50} color="black" />
-					<Text style={styles.valueResultTraining}>168</Text>
+					<Text style={styles.valueResultTraining}>{totalTime}</Text>
 				</View>
 			</View>
-			<Button status="info" onPress={() => navigation.push("Home")}>Finalizar</Button>
+			<Button status="info" onPress={() => navigation.push("Home")}>
+				Finalizar
+			</Button>
 		</Layout>
 	);
 };
