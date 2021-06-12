@@ -13,13 +13,16 @@ import {
 
 import Timer from "../components/Timer";
 import ExitConfirmation from "../Alerts/ExitConfirmation";
-const image2 = require("../assets/workout.jpg");
 
 const BackIcon = (props) => <Icon {...props} name="arrow-back" />;
 
 export const TrainingScreen = ({ route, navigation }) => {
 	const navigateBack = () => {
-		ExitConfirmation(navigation);
+		ExitConfirmation(navigateToExerciseList);
+	};
+
+	const navigateToExerciseList = () => {
+		navigation.navigate("ListTrainings");
 	};
 
 	const BackAction = () => (
@@ -41,7 +44,10 @@ export const TrainingScreen = ({ route, navigation }) => {
 			<Divider />
 			<Layout style={styles.container} level="1">
 				<View style={styles.imageContainer}>
-					<Image style={styles.trainingImage} source={image2}></Image>
+					<Image
+						style={styles.trainingImage}
+						source={exList[currentIndex].image}
+					></Image>
 				</View>
 
 				<Layout style={styles.contentContainer} level="2">

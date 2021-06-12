@@ -1,10 +1,6 @@
 import React, { BackHandler, Alert } from "react-native";
 
-const ExitConfirmation = ({ navigation }) => {
-	const navigateListExercise = () => {
-		navigation.navigate("ListTrainings");
-	};
-
+const ExitConfirmation = (navigationHandler) => {
 	Alert.alert(
 		"Sair do Treino",
 		"Tens a certeza que queres terminar este treino",
@@ -14,7 +10,10 @@ const ExitConfirmation = ({ navigation }) => {
 				onPress: () => {},
 				style: "cancel",
 			},
-			{ text: "OK", onPress: navigateListExercise },
+			{
+				text: "OK",
+				onPress: () => navigationHandler(),
+			},
 		]
 	);
 };

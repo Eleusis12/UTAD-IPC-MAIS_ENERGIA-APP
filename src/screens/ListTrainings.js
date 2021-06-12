@@ -23,17 +23,23 @@ const BackIcon = (props) => <Icon {...props} name="arrow-back" />;
 const ExerciseList = [];
 
 const ExerciseData = () => {
-	console.log("hey");
+	while (ExerciseList.length < 2) {
+		let randomIndex = Math.floor(Math.random() * Exercises.length);
+		console.log(randomIndex);
+		let exercise = Exercises[randomIndex];
 
-	Exercises.forEach((ex) => {
-		ExerciseList.push({
-			id: ex.id,
-			name: ex.nome,
-			time: ex.tempo,
-			desc: ex.descricao,
-			calories: ex.calorias,
-		});
-	});
+		if (!ExerciseList.includes(exercise)) {
+			console.log(exercise.nome);
+			ExerciseList.push({
+				id: exercise.id,
+				name: exercise.nome,
+				time: exercise.tempo,
+				desc: exercise.descricao,
+				calories: exercise.calorias,
+				image: exercise.imagem,
+			});
+		}
+	}
 };
 
 // Temos que retornar uma lista de exercícios que o idoso possa realizar

@@ -3,8 +3,6 @@ import { StyleSheet, View, ImageBackground, Image } from "react-native";
 import { Button, Input, Text, Icon, Layout, Card } from "@ui-kitten/components";
 
 const TrainingCard = (props) => {
-	const image = require("../assets/workout.jpg");
-
 	const { exercise } = props;
 
 	const Header = (props) => (
@@ -22,7 +20,7 @@ const TrainingCard = (props) => {
 		// </View>
 
 		<Layout style={styles.container} level="1">
-			<ImageBackground style={styles.image} source={image}>
+			<ImageBackground style={styles.image} source={exercise.image}>
 				<Text style={styles.titleLabel} category="h4">
 					{exercise.name}
 				</Text>

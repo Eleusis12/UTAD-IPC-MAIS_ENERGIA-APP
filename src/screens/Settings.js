@@ -51,7 +51,7 @@ export const SettingsScreen = ({ navigation }) => {
 	};
 
 	const navigatePersonal = () => {
-		navigation.navigate("PersonalForm");
+		navigation.push("PersonalForm");
 	};
 
 	const navigateExerciceSettings = () => {

@@ -28,7 +28,7 @@ export default function App() {
 		<>
 			<StatusBar />
 			<IconRegistry icons={EvaIconsPack} />
-			<ApplicationProvider {...eva} theme={eva.light}>
+			<ApplicationProvider {...eva} theme={eva.dark}>
 				<AppNavigator />
 			</ApplicationProvider>
 		</>
