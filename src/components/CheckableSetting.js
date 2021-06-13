@@ -25,11 +25,14 @@ const CheckableSetting = (props) => {
 				{...touchableOpacityProps}
 				style={[styles.container, style]}
 			>
-				<Text category="s2">{hint}</Text>
+				<Text category="s2" style={{ fontSize: 25 }}>
+					{hint}
+				</Text>
 				<CheckBox
 					value={isSelected}
 					onValueChange={setSelection}
 					style={styles.checkbox}
+					tintColors={{ true: "#FFFFFF", false: "FFFFFF" }}
 				></CheckBox>
 				{children}
 			</TouchableOpacity>

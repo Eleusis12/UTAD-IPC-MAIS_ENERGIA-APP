@@ -9,21 +9,6 @@ export const PersonalFormScreen = ({ navigation }) => {
 	const [weight, setWeight] = useState();
 	const [height, setheight] = useState();
 
-	async function UserExists() {
-		const user = await AsyncStorage.getItem("user");
-
-		const userObj = JSON.parse(user);
-
-		console.log(userObj);
-
-		if (userObj == null) {
-			console.log("hey");
-			return false;
-		}
-		console.log("hey2");
-		return true;
-	}
-
 	async function SaveUserInfo() {
 		const newUser = {
 			age: age,

@@ -8,24 +8,37 @@ import {
 import { Divider, Text, Layout } from "@ui-kitten/components";
 const Timer = (props) => {
 	const { tempoRestante } = props;
+	const { isPaused } = props;
 
 	let [timeLeft, countDown] = useState(tempoRestante);
+	let [onPause, togglePause] = useState(isPaused);
 
 	useEffect(() => {
 		const id = setTimeout(() => {
-			if (timeLeft > 0) {
-				countDown(timeLeft - 1);
+			if (!onPause) {
+				if (timeLeft > 0) {
+					countDown(timeLeft - 1);
+				}
+			} else {
+				togglePause(onPause);
 			}
 		}, 1000);
 		return () => {
 			clearTimeout(id);
 		};
-	}, [timeLeft]);
+	}, [timeLeft, onPause]);
 
 	return (
 		<View style={styles.container}>
 			<View style={styles.outerRectangle}>
-				<Text style={styles.timer}>TEMPO: {timeLeft}s</Text>
+				<Text
+					style={styles.timer}
+					onPress={() => {
+						togglePause(!onPause);
+					}}
+				>
+					TEMPO: {timeLeft}s
+				</Text>
 			</View>
 		</View>
 	);

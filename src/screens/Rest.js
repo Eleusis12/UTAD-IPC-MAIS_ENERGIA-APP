@@ -12,7 +12,7 @@ export const RestScreen = ({ route, navigation }) => {
 		<View style={styles.container}>
 			<Text style={styles.rest}>Descansa! </Text>
 			<Text style={styles.text}>Ainda tens...</Text>
-			<Timer tempoRestante={25}></Timer>
+			<Timer tempoRestante={25} isPaused={true}></Timer>
 			<Button
 				status="info"
 				onPress={() => {
@@ -35,11 +35,16 @@ export const RestScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		marginTop: 180,
 		flexDirection: "column",
 		alignItems: "center",
+		backgroundColor: "#4b4b4b",
 	},
-	rest: { fontSize: 50, fontWeight: "bold", color: "#fbac00" },
+	rest: {
+		marginTop: 180,
+		fontSize: 50,
+		fontWeight: "bold",
+		color: "#fbac00",
+	},
 	text: { fontSize: 30, fontWeight: "bold", paddingTop: 100 },
 	timer: { fontSize: 120, fontWeight: "bold" },
 });

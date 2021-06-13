@@ -54,7 +54,10 @@ export const TrainingScreen = ({ route, navigation }) => {
 					<Text style={styles.titleTrain}>{exList[currentIndex].name}</Text>
 					<Divider />
 					<Text style={styles.contentText}>{exList[currentIndex].desc}</Text>
-					<Timer tempoRestante={exList[currentIndex].time}></Timer>
+					<Timer
+						tempoRestante={exList[currentIndex].time}
+						isPaused={true}
+					></Timer>
 				</Layout>
 				<Divider />
 				<Button

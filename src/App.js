@@ -12,6 +12,7 @@ import Home from "./screens/Home";
 import Settings from "./screens/Settings";
 import Training from "./screens/Training";
 import AsyncStorage from "@react-native-community/async-storage";
+import Exercises from "./constants/Exercises";
 
 export default function App() {
 	// Usar as seguintes fonts
@@ -19,6 +20,8 @@ export default function App() {
 	let [fontsLoaded] = useFonts({
 		Inter_900Black,
 	});
+
+	AsyncStorage.clear();
 
 	// Se a font ainda não carregou
 	if (!fontsLoaded) {

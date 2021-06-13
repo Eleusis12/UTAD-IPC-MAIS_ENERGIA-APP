@@ -46,18 +46,31 @@ const styles = StyleSheet.create({
 	},
 	image: {
 		height: 180,
-		opacity: 0.6,
+		opacity: 1,
 	},
 	titleLabel: {
 		fontSize: 20,
 		fontWeight: "bold",
 		color: "#9C27B0",
+		textShadowColor: "black",
+		textShadowRadius: 1,
+		textShadowOffset: {
+			width: -0.5,
+			height: -0.5,
+		},
 
 		marginHorizontal: 24,
 		marginVertical: 16,
 	},
 	descriptionLabel: {
 		margin: 24,
+		textShadowColor: "black",
+		textShadowRadius: 1,
+		textShadowOffset: {
+			width: -0.5,
+			height: -0.5,
+		},
+		fontSize: 20,
 	},
 	contentLabel: {
 		margin: 24,

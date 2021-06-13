@@ -17,6 +17,7 @@ const DropdownSetting = (props) => {
 		values,
 		valueChanged,
 		label,
+		selected,
 		...touchableOpacityProps
 	} = props;
 
@@ -27,12 +28,19 @@ const DropdownSetting = (props) => {
 				{...touchableOpacityProps}
 				style={[styles.container, style]}
 			>
-				<Text category="s2">{hint}</Text>
+				<Text category="s2" style={{ fontSize: 25 }}>
+					{hint}
+				</Text>
 				<Dropdown
 					data={values}
 					label={label}
 					onChangeText={(item) => valueChanged(item)}
 					containerStyle={{ width: 150 }}
+					labelContainerStyle={{ backgroundColor: "#FFFFFF" }}
+					pickerStyle={{ backgroundColor: "#FFFFFF" }}
+					overlayStyle={{ backgroundColor: "#FFFFFF" }}
+					value={selected}
+					fontSize={20}
 				></Dropdown>
 				{children}
 			</TouchableOpacity>
